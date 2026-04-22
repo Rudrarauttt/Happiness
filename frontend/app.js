@@ -6,7 +6,7 @@ const responseBox = document.getElementById('responseBox');
 const guruReply = document.getElementById('guruReply');
 const guruOrb = document.querySelector('.guru-orb');
 
-const API_BASE = '/api'; // Using relative path for production
+const API_BASE = 'https://happiness-guriu.onrender.com/api'; // Live Render Backend IP
 let mediaRecorder;
 let audioChunks = [];
 let isRecording = false;

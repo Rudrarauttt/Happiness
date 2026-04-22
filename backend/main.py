@@ -32,6 +32,8 @@ groq_client = Groq()
 AUDIO_OUTPUT_DIR = "audio_outputs"
 os.makedirs(AUDIO_OUTPUT_DIR, exist_ok=True)
 
+latest_audio_id = "none"
+
 class ChatRequest(BaseModel):
     message: str
 
@@ -81,6 +83,8 @@ async def chat(request: ChatRequest):
     
     # Generate unique audio filename
     audio_filename = f"response_{uuid.uuid4().hex}.mp3"
+    global latest_audio_id
+    latest_audio_id = audio_filename
     generate_audio(guru_text, audio_filename)
     
     return {
@@ -115,6 +119,8 @@ async def handle_voice(audio: UploadFile = File(...)):
         
         # 3. Generate Audio
         audio_filename = f"response_{uuid.uuid4().hex}.mp3"
+        global latest_audio_id
+        latest_audio_id = audio_filename
         generate_audio(guru_text, audio_filename)
         
         # Cleanup temp file
@@ -142,7 +148,7 @@ async def get_audio(filename: str):
 
 @app.get("/api/status")
 def status():
-    return {"status": "Guru is awake."}
+    return {"status": "Guru is awake.", "latest_id": latest_audio_id}
 
 # Serve the frontend files at the root
 # Ensure this is placed after all API routes
