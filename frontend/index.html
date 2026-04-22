@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happiness Guru</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Happiness <span>Guru</span></h1>
+            <p>Seek within for answers.</p>
+        </header>
+
+        <div class="guru-orb">
+            <div class="glow"></div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3673/3673248.png" alt="Guru" class="guru-icon">
+        </div>
+
+        <div class="interaction-area">
+            <div id="statusText" class="status-text">Guru awaits your question.</div>
+            
+            <div class="controls">
+                <button id="recordBtn" class="primary-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+
+            <div class="text-input-group">
+                <input type="text" id="textInput" placeholder="Or type your question here..." />
+                <button id="sendTextBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <div class="response-box" id="responseBox" style="display: none;">
+            <p id="guruReply"></p>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

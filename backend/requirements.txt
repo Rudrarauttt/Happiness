@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+groq
+pydantic
+python-dotenv
+soundfile
+gTTS
+aiofiles
