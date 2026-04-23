@@ -34,6 +34,17 @@ os.makedirs(AUDIO_OUTPUT_DIR, exist_ok=True)
 
 latest_audio_id = "none"
 
+def generate_startup():
+    startup_path = os.path.join(AUDIO_OUTPUT_DIR, "startup.mp3")
+    if not os.path.exists(startup_path):
+        try:
+            from gtts import gTTS
+            tts = gTTS(text="Happiness, Guru is our life.", lang='en', tld='co.in')
+            tts.save(startup_path)
+        except: pass
+
+generate_startup()
+
 class ChatRequest(BaseModel):
     message: str
 
